@@ -4,6 +4,7 @@ var App = {
 
   username: 'anonymous',
 
+
   initialize: function() {
     App.username = window.location.search.substr(10);
 
@@ -20,8 +21,9 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
-
+      // console.log(data);
+      MessagesView.render(data);
+      RoomsView.render(data);
       callback();
     });
   },
@@ -36,3 +38,4 @@ var App = {
     FormView.setStatus(false);
   }
 };
+
