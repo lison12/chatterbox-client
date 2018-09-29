@@ -3,19 +3,16 @@ var MessagesView = {
   $chats: $('#chats'),
 
   initialize: function() {
-
+// on click 
   },
 
   render: function(data) {
-// console.log(Object);
-  // App.fetch = Object => 
-    // for (var i of windows.data) {
-      //console.log("hello")
-    for (var i = 0; i < 20; i++) {
-      this.$chats.append(MessageView.render(data.results[i]));
-    }
-    // }
 
+    for (var i = 0; i < data.results.length; i++) {
+      if (data.results[i].username && data.results[i].text && data.results[i].roomname) {
+        this.$chats.append(MessageView.render(data.results[i]));
+      }
+    }
   },
   
   renderMessage: function(message) {
