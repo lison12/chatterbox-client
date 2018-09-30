@@ -22,7 +22,7 @@ var MessagesView = {
         this.$chats.append(MessageView.render(data.results[i]));
       }
     }
-    $this.$chats.find('.username').click(() => Freinds.toggleStatus(data.results[i].username))
+    this.$chats.find('.username').click(() => Friends.toggleStatus(data.results[i].username))
   },
   
   renderMessage: function(message) {

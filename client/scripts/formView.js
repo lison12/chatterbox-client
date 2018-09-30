@@ -17,8 +17,12 @@ var FormView = {
       username: App.username,
       text: inputText,
       roomname: FormView.$select.find(':selected').text() //'Lobby'
-    }
+    };
     Parse.create(message);
+    $('#chats').empty();
+    $('#rooms select').empty();
+    App.startSpinner();
+    App.fetch(App.stopSpinner);
     //messagesView.render()
   },
 
