@@ -1,9 +1,9 @@
 var Friends = {
 
-toggleStatus: function(message) {
+toggleStatus: function(friend) {
 //  if (MessagesView.renderMessage())
-  return true;
+  var obj = {};
+  Friend.obj[friend] = Friend.obj[friend] ? true : false;
   }
   
 };
-

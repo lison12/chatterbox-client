@@ -1,9 +1,18 @@
 var MessagesView = {
 
   $chats: $('#chats'),
+  $refresh: $('#refresh'),
+  $select: $('#rooms select'),
 
   initialize: function() {
-// on click 
+    // on click 
+    // console.log(data)
+    this.$refresh.on('click', () => {
+    this.$chats.empty();
+    this.$select.empty();
+    App.startSpinner();
+    App.fetch(App.stopSpinner);
+    })
   },
 
   render: function(data) {
@@ -13,6 +22,7 @@ var MessagesView = {
         this.$chats.append(MessageView.render(data.results[i]));
       }
     }
+    $this.$chats.find('.username').click(() => Freinds.toggleStatus(data.results[i].username))
   },
   
   renderMessage: function(message) {

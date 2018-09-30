@@ -9,7 +9,7 @@ var App = {
     App.username = window.location.search.substr(10);
 
     FormView.initialize();
-    RoomsView.initialize();
+    // RoomsView.initialize();
     MessagesView.initialize();
 
     // Fetch initial batch of messages
@@ -21,9 +21,11 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      // console.log(data);
+      console.log(data);
       MessagesView.render(data);
       RoomsView.render(data);
+      RoomsView.roomMessages(data);
+      RoomsView.initialize(data);
       callback();
     });
   },
